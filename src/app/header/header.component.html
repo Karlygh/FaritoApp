@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg ">
+  <div class="container-fluid d-flex flex-column flex-lg-row align-items-center justify-content-between">
+
+    <a class="navbar-brand mb-2 mb-lg-0 me-lg-3" [routerLink]="['/']">
+      <img src="/assets/bluefaro.png" alt="Logo" style="width: 150px; height: 110px; border-radius: 50%;" class="d-inline-block align-text-top">
+    </a>
+
+    <button class="navbar-toggler mb-2 mb-lg-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+      aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-center" id="mainNavbar">
+      <ul class="navbar-nav gap-3">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/']">Inicio</a> <!-- ✅ Con corchetes -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/menu']">Menú</a> <!-- ✅ Con corchetes -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/ubicacion']">Ubicación</a> <!-- 🔁 Ancla local -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/galeria']">Galería</a>
+        </li> 
+        <li class="nav-item">
+          <a class="nav-link text-white" [routerLink]="['/pedido']">Pedido Online</a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav>

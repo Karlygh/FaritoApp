@@ -1,0 +1,75 @@
+/* Fondo suave tipo café claro */
+.navbar {
+  background-color: #023e8a;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  padding: 1rem 2rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Logo y marca */
+.navbar-brand {
+  font-weight: bold;
+  color: #5b3924; /* marrón oscuro elegante */
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.navbar-brand:hover {
+  color: #a97449; 
+  text-decoration: none;
+}
+
+/* Estilo base para los enlaces */
+.nav-link {
+  color:#90e0ef;
+  font-weight: 500;
+  font-size: 2rem;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+/* Efecto elegante al hacer hover */
+.nav-link:hover {
+  color: #fdfbf9;
+  border:1px solid #90e0ef;
+  animation: linkHover 0.3s ease;
+  }
+
+  @keyframes linkHover {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+}
+
+.nav-link::after {
+  content: '';
+  display: block;
+  width: 0%;
+  height: 2px;
+  background: #fdfbf9;
+  transition: width 0.3s ease;
+  margin: auto;
+}
+
+.nav-link:hover::after {
+  width: 60%;
+}
+
+/* Botón hamburguesa */
+.navbar-toggler {
+  border: 3px solid #03045e;
+  background-color: #ade8f4;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%2891, 57, 36, 0.7%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}

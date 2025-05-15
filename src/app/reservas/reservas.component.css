@@ -1,0 +1,77 @@
+form {
+  font-family: 'Aleo', sans-serif; /* Fuente aplicada */
+  background-color: #fdfbf9; /* Fondo crema claro */
+  border: 1px solid #ddd;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+  font-family: 'Aleo', sans-serif;
+  color: #023e8a; /* Azul fuerte */
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+/* Etiquetas */
+label.form-label {
+  color: #5b3924; /* Marrón elegante */
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* Inputs, selects y textarea */
+input.form-control,
+select.form-select,
+textarea.form-control {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-family: 'Aleo', sans-serif;
+  transition: border-color 0.3s ease;
+}
+
+input.form-control:focus,
+select.form-select:focus,
+textarea.form-control:focus {
+  border-color: #023e8a;
+  outline: none;
+}
+
+/* Mensajes de error */
+.text-danger {
+  color: #d00000;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Botón de envío */
+button.btn-primary {
+  background-color: #023e8a;
+  border-color: #023e8a;
+  font-weight: bold;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  padding: 0.75rem 2rem;
+  font-family: 'Aleo', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+button.btn-primary:hover {
+  background-color: #03045e;
+  border-color: #03045e;
+}
+
+/* Mensaje de confirmación */
+.alert-success {
+  background-color: #dff0d8;
+  border-color: #d0e9c6;
+  color: #3c763d;
+  font-family: 'Aleo', sans-serif;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 3rem;
+}

@@ -1,0 +1,108 @@
+<div class="container my-5">
+  <h1 class="text-center mb-3">Haz tu pedido en FaritoApp </h1>
+  <p class="text-center mb-4">
+    Bienvenido a nuestro servicio de pedidos en línea. Selecciona tus platos favoritos y confirma tu pedido de forma rápida y sencilla.
+  </p>
+  <!-- Selección de platos -->
+  <h3 class="text-center mb-4">➕ Añadir al pedido</h3>
+  <form class="row g-3 align-items-end mb-5">
+    <div class="col-md-6">
+      <label class="form-label">Seleccionar plato</label>
+      <select class="form-select" [(ngModel)]="platoSeleccionado" name="platoSeleccionado" (change)="actualizarPrecioSeleccionado()" required>
+        <option [ngValue]="null">-- Elige un plato --</option>
+        <option *ngFor="let p of catalogo" [ngValue]="p">{{ p.nombre }}</option>
+      </select>
+    </div>
+
+    <div class="col-md-4">
+      <label class="form-label">Precio</label>
+      <input class="form-control" [value]="precioSeleccionado | currency:'EUR'" readonly />
+    </div>
+
+    <div class="col-md-2">
+      <button class="btn btn-success w-100" type="button" (click)="agregarAlPedido(platoSeleccionado)" [disabled]="!platoSeleccionado">
+        Añadir
+      </button>
+    </div>
+  </form>
+      <!-- ✅ Mensaje temporal al añadir un plato -->
+  <div *ngIf="mostrarMensajeSugerencia" class="alert alert-primary text-center">
+    🥘 ¡Añade más comida a tu pedido si lo deseas!
+  </div>
+  <!-- Botón para abrir el modal del pedido -->
+  <div class="container text-center">
+    <button
+      id="btnVerPedido"
+      class="btn btn-lg btn-warning"
+      data-bs-toggle="modal"
+      data-bs-target="#modalPedido"
+      [ngClass]="{ 'zoom-efecto': animarZoom }">
+      🛒 Ver pedido ({{ pedido.length }} plato{{ pedido.length === 1 ? '' : 's' }})
+    </button>
+ 
+  
+
+  <!-- Modal con el resumen del pedido -->
+  <div class="modal fade" id="modalPedido" tabindex="-1" aria-labelledby="modalPedidoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalPedidoLabel">Resumen del pedido</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+
+        <!-- SI HAY PRODUCTOS EN EL PEDIDO -->
+        <div *ngIf="pedido.length > 0">
+          <ul class="list-group mb-4">
+            <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let plato of pedido">
+              <div>
+                {{ plato.nombre }} - {{ plato.precio | currency:'EUR' }} x {{ plato.cantidad }}
+              </div>
+              <div>
+                <button class="btn btn-sm btn-outline-secondary me-2" (click)="disminuirCantidad(plato)">➖</button>
+                <button class="btn btn-sm btn-outline-secondary me-2" (click)="aumentarCantidad(plato)">➕</button>
+                <button class="btn btn-sm btn-outline-danger" (click)="eliminarDelPedido(plato)">🗑️</button>
+              </div>
+            </li>
+          </ul>
+
+          <h5 class="text-end">Total: {{ obtenerTotal() | currency:'EUR' }}</h5>
+
+          <!-- Formulario cliente -->
+          <form [formGroup]="formularioCliente" (ngSubmit)="confirmarPedido()" class="mt-4">
+            <div class="mb-3">
+              <label class="form-label modal-title">Nombre</label>
+              <input class="form-control" formControlName="nombreCliente" placeholder="Tu nombre" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label modal-title">Teléfono</label>
+              <input class="form-control" formControlName="telefonoCliente" placeholder="Tu teléfono" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label modal-title">Correo electrónico</label>
+              <input class="form-control" formControlName="correoCliente" placeholder="Tu correo electrónico" />
+            </div>
+            <button type="submit" class="btn btn-success w-100">✅ Confirmar pedido</button>
+          </form>
+
+          <!-- Confirmación -->
+          <div *ngIf="pedidoConfirmado" class="alert alert-success text-center mt-4">
+            ✅ Gracias. Tu pedido estará listo en 30 minutos.
+            <i class="fa-solid fa-person-walking"></i> Su pedido ha sido ordenado
+            <p><strong>Nombre:</strong> {{ datosCliente.nombreCliente }}</p>
+            <p><strong>Teléfono:</strong> {{ datosCliente.telefonoCliente }}</p>
+            <p><strong>Correo:</strong> {{ datosCliente.correoCliente }}</p>
+            <p>En el correo encontrarás la reserva en PDF.</p>
+          </div>
+        </div>
+
+        <!-- SI NO HAY PRODUCTOS -->
+        <div *ngIf="pedido.length === 0" class="text-center">
+          <p>No hay productos en el pedido.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

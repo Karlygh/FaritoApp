@@ -1,0 +1,76 @@
+/* Fondo y estructura general */
+:host {
+  display: block;
+  background: linear-gradient(to bottom, #fdfbf9, #e6f4fa); /* blanco a azul claro */
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Título */
+h2 {
+  color: #023e8a;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+/* Mapa */
+#mapa {
+  height: 500px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  margin-bottom: 3rem;
+  border: 2px solid #90e0ef;
+}
+
+/* Sección de datos */
+.text-center h3 {
+  color: #023e8a;
+  text-shadow: 0.5px 0.5px 2px rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+.text-center p {
+  color: #333;
+  font-size: 1.1rem;
+}
+
+/* Botón */
+#reserva-button {
+  margin-top: 1rem;
+  background-color: #90e0ef;
+  border: none;
+  color: #023e8a;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0.75rem 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+#reserva-button:hover {
+  background-color: #48cae4;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #mapa {
+    height: 350px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .text-center h3 {
+    font-size: 1.3rem;
+  }
+
+  .text-center p {
+    font-size: 1rem;
+  }
+}

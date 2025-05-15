@@ -1,0 +1,123 @@
+<div class="container mt-5">
+  <h1 class="text-center mb-5">Nuestra Carta</h1>
+
+  <!-- Entrantes -->
+  <section class="mb-5">
+    <h2 class="mb-4 seccion-titulo text-center mb-5">Entrantes</h2>
+    <div class="row g-4">
+      <div class="col-md-6" *ngFor="let plato of entrantes">
+        <div class="card h-100 shadow-sm animado" #animado>
+          <img [src]="plato.imagen" class="card-img-top" alt="{{ plato.nombre }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ plato.nombre }}</h5>
+            <p class="card-text">{{ plato.descripcion }}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="badge" [ngClass]="'bg-' + plato.color">{{ plato.etiqueta }}</span>
+              <strong>{{ plato.precio | currency:'EUR' }}</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ensaladas -->
+  <section class="mb-5">
+    <h2 class="mb-4 seccion-titulo text-center mb-5">Ensaladas</h2>
+    <div class="row g-4">
+      <div class="col-md-6" *ngFor="let plato of ensaladas">
+       <div class="card h-100 shadow-sm animado" #animado>
+          <img [src]="plato.imagen" class="card-img-top" alt="{{ plato.nombre }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ plato.nombre }}</h5>
+            <p class="card-text">{{ plato.descripcion }}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="badge" [ngClass]="'bg-' + plato.color">{{ plato.etiqueta }}</span>
+              <strong>{{ plato.precio | currency:'EUR' }}</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pizzas -->
+  <section class="mb-5">
+    <h2 class="mb-4 seccion-titulo text-center mb-5">Pizzas</h2>
+    <div class="row g-4">
+      <div class="col-md-6" *ngFor="let plato of pizzas">
+        <div class="card h-100 shadow-sm animado" #animado>
+          <img [src]="plato.imagen" class="card-img-top" alt="{{ plato.nombre }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ plato.nombre }}</h5>
+            <p class="card-text">{{ plato.descripcion }}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="badge" [ngClass]="'bg-' + plato.color">{{ plato.etiqueta }}</span>
+              <strong>{{ plato.precio | currency:'EUR' }}</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chuletas -->
+  <section class="mb-5">
+    <h2 class="mb-4 seccion-titulo text-center mb-5">Chuleta & Parrilla</h2>
+    <div class="row g-4">
+      <div class="col-md-6" *ngFor="let plato of chuletones">
+        <div class="card h-100 shadow-sm animado" #animado>
+          <img [src]="plato.imagen" class="card-img-top" alt="{{ plato.nombre }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ plato.nombre }}</h5>
+            <p class="card-text">{{ plato.descripcion }}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="badge" [ngClass]="'bg-' + plato.color">{{ plato.etiqueta }}</span>
+              <strong>{{ plato.precio | currency:'EUR' }}</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bebidas -->
+  <section class="mb-5">
+    <h2 class="seccion-titulo text-center mb-5">Bebidas</h2>
+    <div class="row g-4">
+      <div class="col-md-6" *ngFor="let plato of bebidas">
+        <div class="card h-100 shadow-sm animado" #animado>
+          <img [src]="plato.imagen" class="card-img-top" alt="{{ plato.nombre }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ plato.nombre }}</h5>
+            <p class="card-text">{{ plato.descripcion }}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="badge" [ngClass]="'bg-' + plato.color">{{ plato.etiqueta }}</span>
+              <strong>{{ plato.precio | currency:'EUR' }}</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Postres -->
+  <section class="mb-5">
+    <h2 class="mb-4 seccion-titulo text-center mb-5">Postres</h2>
+    <div class="row g-4">
+      <div class="col-md-6" *ngFor="let plato of postres">
+        <div class="card h-100 shadow-sm">
+          <img [src]="plato.imagen" class="card-img-top" alt="{{ plato.nombre }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ plato.nombre }}</h5>
+            <p class="card-text">{{ plato.descripcion }}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="badge" [ngClass]="'bg-' + plato.color">{{ plato.etiqueta }}</span>
+              <strong>{{ plato.precio | currency:'EUR' }}</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

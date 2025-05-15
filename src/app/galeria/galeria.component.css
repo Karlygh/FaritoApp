@@ -1,0 +1,43 @@
+/* Imagen destacada */
+.banner-img {
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+  object-position: 50% 60%; /* <- ajusta este valor a tu gusto */
+  border-radius: 1rem;
+}
+
+
+
+/* Animación de entrada (estado inicial) */
+.animado {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  transition: all 0.8s ease-in-out;
+}
+
+/* Animación de entrada (cuando entra en pantalla) */
+.animado-visible {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+/* Tarjetas */
+.galeria-card {
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+/* Imágenes dentro de la galería */
+.galeria-card img {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+  transition: transform 0.4s ease;
+}
+
+/* Zoom al pasar el ratón */
+.galeria-card:hover img {
+  transform: scale(1.05);
+}

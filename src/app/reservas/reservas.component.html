@@ -1,0 +1,84 @@
+<div class="container mt-5 mb-3">
+  <h2>Reserva tu mesa</h2>
+  <form [formGroup]="reservaForm" (ngSubmit)="onSubmit()">
+    <!-- Nombre -->
+    <div class="mb-3">
+      <label class="form-label">Nombre</label>
+      <input class="form-control" formControlName="nombre" />
+      <div class="text-danger" *ngIf="reservaForm.get('nombre')?.invalid && reservaForm.get('nombre')?.touched">
+        El nombre es obligatorio.
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input type="email" class="form-control" formControlName="email" />
+      <div class="text-danger" *ngIf="reservaForm.get('email')?.touched">
+        <div *ngIf="reservaForm.get('email')?.errors?.['required']">El email es obligatorio.</div>
+        <div *ngIf="reservaForm.get('email')?.errors?.['email']">Formato de email inválido.</div>
+      </div>
+    </div>
+
+    <!-- Fecha -->
+    <div class="mb-3">
+      <label class="form-label">Fecha</label>
+      <input
+        type="text"
+        class="form-control"
+        bsDatepicker
+        [bsConfig]="bsConfig"
+        formControlName="fecha"
+      />
+      <div class="text-danger" *ngIf="reservaForm.get('fecha')?.touched">
+        <div *ngIf="reservaForm.get('fecha')?.errors?.['required']">La fecha es obligatoria.</div>
+        <div *ngIf="reservaForm.get('fecha')?.errors?.['fechaPasada']">La fecha debe ser futura.</div>
+      </div>
+    </div>
+
+    <!-- Número de personas -->
+    <div class="mb-3">
+      <label class="form-label">Número de personas</label>
+      <input type="number" class="form-control" formControlName="personas" min="1" max="10" />
+      <div class="text-danger" *ngIf="reservaForm.get('personas')?.touched">
+        <div *ngIf="reservaForm.get('personas')?.errors?.['required']">Este campo es obligatorio.</div>
+        <div *ngIf="reservaForm.get('personas')?.errors?.['min']">Debe haber al menos 1 persona.</div>
+        <div *ngIf="reservaForm.get('personas')?.errors?.['max']">Máximo 10 personas.</div>
+      </div>
+    </div>
+
+    <!-- Horario -->
+    <div class="mb-3">
+      <label class="form-label">Horario</label>
+      <select class="form-select" formControlName="horario">
+        <option value="">Selecciona un horario</option>
+        <option *ngFor="let h of horariosDisponibles" [value]="h">{{ h }}</option>
+      </select>
+      <div class="text-danger" *ngIf="reservaForm.get('horario')?.touched && reservaForm.get('horario')?.invalid">
+        El horario es obligatorio.
+      </div>
+    </div>
+
+    <!-- Comentario -->
+    <div class="mb-3">
+      <label class="form-label">Comentario (opcional)</label>
+      <textarea class="form-control" formControlName="comentario" rows="2"></textarea>
+    </div>
+
+    <!-- Botón -->
+    <button class="btn btn-primary mb-5" type="submit" [disabled]="reservaForm.invalid">Reservar</button>
+  </form>
+
+  <!-- Mensaje de confirmación -->
+  <div *ngIf="reservaConfirmada" class="alert alert-success mt-4">
+    <h4>✅ Reserva confirmada</h4>
+    <h2>Se a enviado un PDF con la reserva a su correo electrónico</h2>
+    <p><strong>Nombre:</strong> {{ datosReserva.nombre }}</p>
+    <p><strong>Email:</strong> {{ datosReserva.email }}</p>
+    <p><strong>Fecha:</strong> {{ datosReserva.fecha }}</p>
+    <p><strong>Horario:</strong> {{ datosReserva.horario }}</p>
+    <p><strong>Personas:</strong> {{ datosReserva.personas }}</p>
+    <p><strong>Se penalizará si se presenta fuera de la hora acordada.</strong></p>
+    <p *ngIf="datosReserva.comentario"><strong>Comentario:</strong> {{ datosReserva.comentario }}</p>
+  </div>
+</div>
