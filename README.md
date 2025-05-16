@@ -1,3 +1,4 @@
+Desplegar en GitHubPages: https://karlygh.github.io/FaritoApp/
 # FaritoAppRest
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.11.
